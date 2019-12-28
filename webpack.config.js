@@ -19,7 +19,7 @@ module.exports = {
         filename: "bundle.js"
     },
 
-    devtool: isProduction ? "" : "inline-source-map",
+    devtool: isProduction ? false : "inline-source-map",
     devServer: {
         contentBase: "./src"
     },
@@ -48,6 +48,11 @@ module.exports = {
                 use: {
                     loader: "babel-loader"
                 }
+            },
+            {
+                test: /\.pug$/,
+                exclude: /node_modules/,
+                use: ["html-loader", "pug-html-loader?pretty"]
             },
             {
                 test: /\.(png|jpe?g|gif)$/i,
@@ -96,7 +101,7 @@ module.exports = {
             filename: "style.css"
         }),
         new HtmlWebpackPlugin({
-            template: path.resolve(__dirname, "src", "index.html")
+            template: path.resolve(__dirname, "src", "main.pug")
         })
     ]
 };
