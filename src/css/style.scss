@@ -1,0 +1,18 @@
+@import url("https://fonts.googleapis.com/css?family=Roboto:100,300,400,700&display=swap&subset=cyrillic");
+@import "media";
+
+*,
+*::after,
+*::before {
+    box-sizing: border-box;
+    -webkit-touch-callout: none; /* prevent callout to copy image, etc when tap to hold */
+    -webkit-text-size-adjust: none; /* prevent webkit from resizing text to fit */
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0); /* prevent tap highlight color / shadow */
+    -webkit-user-select: none;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: "Roboto", sans-serif;
+}
