@@ -1,0 +1,29 @@
+.model {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  &__scene {
+    overflow: hidden;
+    top: 0;
+    left: 0;
+    background: transparent;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+}
+
+@media screen and (min-width: 1024px) {
+  .model {
+    &__scene {
+      width: 80%;
+      height: 80%;
+    }
+  }
+}

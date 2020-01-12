@@ -1,5 +1,5 @@
 {
-    "name": "my-webpack-config",
+    "name": "threejs-post-app",
     "version": "1.0.0",
     "description": "",
     "main": "index.js",
@@ -39,6 +39,7 @@
         "webpack-dev-server": "^3.10.1"
     },
     "dependencies": {
-        "@babel/runtime": "^7.7.7"
+        "@babel/runtime": "^7.7.7",
+        "three": "^0.112.1"
     }
 }

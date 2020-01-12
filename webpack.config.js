@@ -21,6 +21,8 @@ module.exports = {
 
     devtool: isProduction ? false : "inline-source-map",
     devServer: {
+        host: "192.168.0.102",
+        port: 8080,
         contentBase: "./src"
     },
 
