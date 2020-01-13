@@ -1,0 +1,41 @@
+<!DOCTYPE js>
+<html lang="en">
+  <head>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <meta http-equiv="X-UA-Compatible" content="ie=edge"/>
+    <title>Webpack</title>
+  <link href="style.css" rel="stylesheet"></head>
+  <body>
+    <header class="header">
+      <h2 class="header__title">Post App</h2>
+      <p class="header__text">3D Model was loaded with <span class="header__text--bright">Three JS</span> library</p>
+      <div class="model">
+        <div class="model__scene"></div>
+      </div>
+    </header>
+    <main>
+      <div class="navigation">
+        <input class="navigation__tab" id="tab1" type="radio" name="tabs" checked="checked"/>
+        <label class="navigation__label" for="tab1" title="Posts">Posts</label>
+        <input class="navigation__tab" id="tab2" type="radio" name="tabs"/>
+        <label class="navigation__label" for="tab2" title="Create Post">Create Post</label>
+        <input class="navigation__tab" id="tab3" type="radio" name="tabs"/>
+        <label class="navigation__label" for="tab3" title="Favourite">Favourite</label>
+        <section class="navigation__section" data-id="posts">
+          <p>Здесь будут отображаться посты</p>
+        </section>
+        <section class="navigation__section" data-id="create-post">
+          <form class="create-post" action="#" method="POST">
+            <input class="create-post__title" placeholder="Введите название поста" type="text" required="required"/>
+            <textarea class="create-post__text" placeholder="Введите текст" rows="10" required="required"></textarea>
+            <button class="create-post__submit" type="submit">Создать</button>
+          </form>
+        </section>
+        <section class="navigation__section" data-id="favourite">
+          <p>Здесь будут отмеченные посты</p>
+        </section>
+      </div>
+    </main>
+  <script type="text/javascript" src="bundle.js"></script></body>
+</html>
