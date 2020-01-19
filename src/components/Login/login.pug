@@ -1,0 +1,15 @@
+form.login
+    img.login__img(alt="login-img" src="./img/login.svg")
+    
+    .login__form
+        h2.login__header Welcome to Post App
+
+        label.login__email-label(for="email") Email *
+        input.login__input(id="email" type="email"  required)
+    
+        label.login__password-label(for="password") Password *
+        input.login__input(id="password" type="password"  required)
+    
+        .login__error.login__error_hidden error
+    
+        button.login__signup(type="submit") Sign Up

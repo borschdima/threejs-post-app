@@ -14,9 +14,7 @@ export default class Navigation {
         const post = new Post();
         const createPost = new CreatePost();
         const favouritePost = new FavouritePost();
-        const firebase = new Firebase();
 
-        firebase.init();
         post.init();
         favouritePost.init();
     };

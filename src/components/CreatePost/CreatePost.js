@@ -20,12 +20,13 @@ export default class CreatePost {
         const title = this.title.value;
         const text = this.text.value;
         const date = this.getDate();
+        const author = JSON.parse(localStorage.getItem("user"));
 
         const post = new Post();
 
-        const postId = await this.firebase.addItem(title, text, date, false);
+        const postId = await this.firebase.addItem(title, text, date, false, author);
 
-        post.render(postId, title, text, date);
+        post.render(postId, title, text, date, false, author);
         this.updateInfoMessage(post);
 
         this.form.reset();

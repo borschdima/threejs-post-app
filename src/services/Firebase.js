@@ -1,5 +1,8 @@
 import * as firebase from "firebase/app";
 import "firebase/database";
+import "firebase/auth";
+
+import Model from "../components/Model/Model.js";
 
 export default class Firebase {
     constructor() {
@@ -12,13 +15,16 @@ export default class Firebase {
             messagingSenderId: "712770649827",
             appId: "1:712770649827:web:7ab607dd7a7e6be5684fd6"
         };
+        this.auth = null;
     }
 
     init = () => {
         firebase.initializeApp(this.firebaseConfig);
+        this.auth = firebase.auth();
+        this.isSignUp();
     };
 
-    addItem = async (title, text, date, favourite) => {
+    addItem = async (title, text, date, favourite, author) => {
         const newPostKey = await firebase
             .database()
             .ref()
@@ -32,13 +38,14 @@ export default class Firebase {
                 title,
                 text,
                 date,
-                favourite
+                favourite,
+                author
             });
 
         return newPostKey;
     };
 
-    updateItem = async (id, title, text, date, favourite) => {
+    updateItem = async (id, title, text, date, favourite, author) => {
         await firebase
             .database()
             .ref("posts/" + id)
@@ -46,7 +53,8 @@ export default class Firebase {
                 title,
                 text,
                 date,
-                favourite
+                favourite,
+                author
             });
     };
 
@@ -68,5 +76,29 @@ export default class Firebase {
         const values = obj.val();
 
         return { id: obj.key, ...values };
+    };
+
+    signUp = async (email, password) => {
+        await this.auth.createUserWithEmailAndPassword(email, password);
+    };
+
+    isSignUp = () => {
+        this.auth.onAuthStateChanged(firebaseUser => {
+            if (firebaseUser) {
+                this.firebaseUser = firebaseUser;
+                document.body.style.overflow = "visible";
+                document.querySelector("form.login").style.display = "none";
+                document.querySelector(".spinner").style.display = "none";
+                document.querySelector(".header").style.display = "flex";
+                document.querySelector("main").style.display = "block";
+                localStorage.setItem("user", JSON.stringify(firebaseUser.email));
+                new Model();
+            } else {
+                document.querySelector(".spinner").style.display = "none";
+                document.querySelector(".header").style.display = "none";
+                document.querySelector("main").style.display = "none";
+                localStorage.setItem("user", JSON.stringify(""));
+            }
+        });
     };
 }

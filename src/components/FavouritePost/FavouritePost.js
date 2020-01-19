@@ -10,9 +10,9 @@ export default class FavouritePost {
         this.firebase = new Firebase();
     }
 
-    update = (id, title, text, date, favourite) => {
+    update = (id, title, text, date, favourite, author) => {
         if (favourite) {
-            renderPost(id, title, text, date, favourite, this.container);
+            renderPost(id, title, text, date, favourite, author, this.container);
         } else {
             this.container.querySelector(`article[data-id="${id}"]`).remove();
         }
@@ -25,7 +25,7 @@ export default class FavouritePost {
         if (dbPosts.length > 0) {
             const favouritePosts = dbPosts.filter(post => post.favourite === true);
 
-            favouritePosts.forEach(({ id, title, text, date, favourite }) => renderPost(id, title, text, date, favourite, this.container));
+            favouritePosts.forEach(({ id, title, text, date, favourite, author }) => renderPost(id, title, text, date, favourite, author, this.container));
 
             this.info.style.display = favouritePosts > 0 ? "none" : "block";
         }

@@ -6,7 +6,18 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge"/>
     <title>Post App</title>
   <link href="style.css" rel="stylesheet"></head>
-  <body>
+  <body><div class="spinner"><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div>
+    <form class="login"><img class="login__img" alt="login-img" src="4e68837d911e09487ccd7a7f8e282724.svg"/>
+      <div class="login__form">
+        <h2 class="login__header">Welcome to Post App</h2>
+        <label class="login__email-label" for="email">Email *</label>
+        <input class="login__input" id="email" type="email" required="required"/>
+        <label class="login__password-label" for="password">Password *</label>
+        <input class="login__input" id="password" type="password" required="required"/>
+        <div class="login__error login__error_hidden">error</div>
+        <button class="login__signup" type="submit">Sign Up</button>
+      </div>
+    </form>
     <header class="header">
       <h2 class="header__title">Post App</h2>
       <p class="header__text">3D Model was loaded with <span class="header__text--bright">Three JS</span> library</p>
