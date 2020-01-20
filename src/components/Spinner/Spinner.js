@@ -7,7 +7,7 @@ export default class Spinner {
 
     initHeight = () => {
         const vh = window.innerHeight * 0.01;
-        const spinner = document.querySelector(".spinner");
-        spinner.style.setProperty("--vh", `${vh}px`);
+        const auth = document.querySelector(".auth");
+        auth.style.setProperty("--vh-auth", `${vh}px`);
     };
 }

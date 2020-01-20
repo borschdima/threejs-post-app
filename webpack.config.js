@@ -21,7 +21,7 @@ module.exports = {
 
     devtool: isProduction ? false : "inline-source-map",
     devServer: {
-        host: "192.168.1.77",
+        host: "192.168.0.102",
         port: 8080,
         contentBase: "./src"
     },
@@ -67,7 +67,6 @@ module.exports = {
                 test: /\.svg$/,
                 loader: "svg-url-loader",
                 options: {
-                    limit: 10 * 1024,
                     noquotes: true
                 }
             },

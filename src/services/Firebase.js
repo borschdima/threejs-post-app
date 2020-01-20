@@ -82,21 +82,24 @@ export default class Firebase {
         await this.auth.createUserWithEmailAndPassword(email, password);
     };
 
+    logIn = async (email, password) => {
+        await this.auth.signInWithEmailAndPassword(email, password);
+    };
+
     isSignUp = () => {
         this.auth.onAuthStateChanged(firebaseUser => {
             if (firebaseUser) {
                 this.firebaseUser = firebaseUser;
-                document.body.style.overflow = "visible";
-                document.querySelector("form.login").style.display = "none";
-                document.querySelector(".spinner").style.display = "none";
-                document.querySelector(".header").style.display = "flex";
-                document.querySelector("main").style.display = "block";
+
+                document.querySelector(".auth").style.display = "none";
+                document.querySelector(".app").style.display = "block";
+
                 localStorage.setItem("user", JSON.stringify(firebaseUser.email));
                 new Model();
             } else {
                 document.querySelector(".spinner").style.display = "none";
-                document.querySelector(".header").style.display = "none";
-                document.querySelector("main").style.display = "none";
+                document.querySelector(".auth").style.display = "block";
+
                 localStorage.setItem("user", JSON.stringify(""));
             }
         });

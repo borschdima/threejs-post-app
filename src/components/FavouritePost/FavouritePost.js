@@ -27,7 +27,7 @@ export default class FavouritePost {
 
             favouritePosts.forEach(({ id, title, text, date, favourite, author }) => renderPost(id, title, text, date, favourite, author, this.container));
 
-            this.info.style.display = favouritePosts > 0 ? "none" : "block";
+            this.info.style.display = favouritePosts.length > 0 ? "none" : "block";
         }
     };
 
